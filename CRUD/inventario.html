@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Inventario</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="jumbotron">
+      <h1>Lista de Inventario</h1>
+      <p></p>
+      <!---<div class="btn-group" role="group">
+            <button  type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Seleccionar orden
+            </button>
+            <div id="Tipo" class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+              <option class="dropdown-item" >Nombre</option>
+              <option class="dropdown-item" >Fecha Proxima</option>
+            </div>
+          </div> -->
+     <div class="dropdown">
+               <select class="form-control" id= "Tipo">
+              <option>selecciona una opcion</option>
+              <option>Nombre</option>
+              <option>Días restantes</option>
+            </select>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Agregar
+              </button>
+            </div>
+    </div>
+    <div class="container-fluid">
+        <!-- Button trigger modal -->
+      
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title row" id="exampleModalLabel">Agregar Artículo</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <center>
+            <div class="modal-body">
+                    <div class="col-md-8 mb-10">
+                            <div class="row">
+                              <form id="form" class="col-12 needs-validation" novalidate>
+                                <div class="form-group">
+                                  <label for="codigo">Código</label>
+                                  <input
+                                    type="number"
+                                    class="form-control"
+                                    id="codigo"
+                                    placeholder="1"
+                                    required
+                                  />
+                                  <div class="valid-feedback">Correcto!</div>
+                                  <div class="invalid-feedback">Este campo es obligatorio</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nArtículo">Nombre del artículo</label>
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      id="nArticulo"
+                                      placeholder="Desodorante"
+                                      required
+                                    />
+                                    <div class="valid-feedback">Correcto!</div>
+                                    <div class="invalid-feedback">Este campo es obligatorio</div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="precio">Precio</label>
+                                    <input
+                                      type="number"
+                                      class="form-control"
+                                      id="precio"
+                                      placeholder="130"
+                                      required
+                                    />
+                                    <div class="valid-feedback">Correcto!</div>
+                                    <div class="invalid-feedback">Este campo es obligatorio</div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="cantidad">Cantidad</label>
+                                    <input
+                                      type="number"
+                                      class="form-control"
+                                      id="cantidad"
+                                      placeholder="1"
+                                      required
+                                    />
+                                    <div class="valid-feedback">Correcto!</div>
+                                    <div class="invalid-feedback">Este campo es obligatorio</div>
+                                  </div>
+                                <div class="form-group">
+                                  <label for="descripcion">Descripción del producto</label>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="descripcion"
+                                    placeholder="Color, tamaño, etc"
+                                    required
+                                  />
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+            </div>
+            </center>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button type="button" id="btnAgregar" class="btn btn-primary">Agregar</button>
+              <button type="button" id="btnBuscar" class="btn btn-danger">Buscar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </center>
+        
+      <div class="row">
+        <!-- Formulario -->
+          </div>
+          <div class="row my-3">
+              <table id="numArticulos" class="table ml-2">
+                <tbody>
+                  <tr>
+                    <td>Número de Articulos:</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+        <div class="col-md-24">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                    <table id="inventario" class="table table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th>Código</th>
+                      <th>Nombre del artículo</th>
+                      <th>Precio</th>
+                      <th>Cantidad</th>
+                      <th>Descripción</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+                    </div>
+                </div>
+              </div>
+            </div>
+      </div>
+      <!-- Row -->
+    </div>
+    <!-- Container -->
+
+    <script src="./main.js" type="module"></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script><script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+  </body>
+</html>
